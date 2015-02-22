@@ -1,0 +1,12 @@
+acme_demo_index:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Demo:index }
+
+acme_demo_show_post:
+    path: /post/{id}
+    defaults: { _controller: "AcmeDemoBundle:Post:Show" }
+
+rest_post:
+    type: rest
+    resource: @AcmeDemoBundle/Controller/RestController.php
+    prefix: /api

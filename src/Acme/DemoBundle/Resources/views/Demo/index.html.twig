@@ -1,0 +1,48 @@
+{% extends "AcmeDemoBundle::layout.html.twig" %}
+
+
+{% block left_container %}
+
+        {% for post in posts %}
+            <!-- Post -->
+            <div class="post">
+
+                <!-- Post Details -->
+                <div class="post_inf">
+                    <span>{{ post.date|date("F j") }}</span><br />
+                    <span class="posn">Admin</span><br />
+                    <a class="posc" href="{{ path('acme_demo_show_post', {'id': post.id}) }}">3 Comments</a>
+
+                </div>
+
+                <!-- Post Title - Permalink -->
+                <h1>
+                    <a href="{{ path('acme_demo_show_post', {'id': post.id}) }}">{{ post.title }}</a>
+                </h1>
+
+                <!-- Post Content -->
+                <a class="pic_lnk" href="{{ path('acme_demo_show_post', {'id': post.id}) }}"><img src="{{ asset('bundles/acmedemo/images/post_pic1.jpg') }}" alt="post_pic1" /></a>
+
+                <p>{{ post.body }}</p>
+
+            </div>
+        {% endfor %}
+
+
+        <!-- Pagination -->
+        {% block pagination %}
+            <div class="pagination">
+
+                <span class="prev">&laquo;Previous</span>
+                <span class="act">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a class="next" href="#">Next&raquo;</a>
+
+            </div>
+        {% endblock %}
+
+{% endblock %}
